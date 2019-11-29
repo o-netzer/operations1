@@ -1,7 +1,7 @@
 # operations1
 ### Selection of IT-Operations scripts written between 2016 and 2019
 
-Scripts written in Python 2.7 for Windows (successfully tested on Windows 7 and Windows 10 machines)
+Scripts written in Python 2.7 for Windows, successfully tested on Windows 7 and Windows 10 machines
 
 IDE: Spyder 2 (Anaconda)
 
@@ -13,9 +13,11 @@ Note that - for security reasons - file names, ip addresses, links, table names,
 Modules | Contents
 ------------ | -------------
 mytoolbox.py|frequently used self-defined functions
-selects.py|SQL queries for Oracle and MySQL data bases
-sftp.py|function for connecting to a sftp server
+selects.py|SQL queries for Oracle and MySQL databases
+sftp.py|function for connecting to sftp server
 XMLs.py|various XML templates
+
+
 
 ### Operational Scripts
 deactivate.py
@@ -27,6 +29,7 @@ testcards.py
 umbuchung_pen_basiert.py
 
 xml_split.py
+
 
 
 ### Reporting Scripts
