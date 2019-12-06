@@ -3,6 +3,10 @@
 Created on Sun Mar 27 21:05:02 2016
 
 @author: netzer
+
+This .py file is a module for the operations1 project and only contains
+XML-templates used in various scripts of that project. For security reasons the
+contents of the templates was left blank.
 """
 
 deactivate = '''<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
