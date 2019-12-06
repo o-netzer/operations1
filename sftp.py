@@ -3,6 +3,10 @@
 Created on Wed Mar 30 14:49:16 2016
 
 @author: netzer
+
+This .py file is a module for the operations1 project and only contains
+sftp-connection procedures used by some scripts of that project. For security
+reasons the procedures was faked.
 """
 
 import pysftp, sys
