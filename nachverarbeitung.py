@@ -16,8 +16,8 @@ selected -  it processes the failed items once more in several steps.
    correct file naming, product count, product meta-data and date
 6) zipping and transferring the new import file and sending it to a folder on the
    ftp, unzipping it
-7) start Pearl Script  for importing data into the db
-8) start another Pearl script for further processing
+7) start script on ftp for importing data into the db
+8) start another script on ftp for further processing
 """
 
 
