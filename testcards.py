@@ -3,12 +3,27 @@
 Created on Fri Aug 25 21:29:44 2017
 
 @author: netzer
+
+Given several input parameters (see USER INPUT section, the variable "pins" can
+be left empty) this script produces a standard card import xml which is ready
+to be imported into the db. The following steps are performed:
+    
+1) consistency check: length of card numbers and pin codes equal?
+2) consistency check: does retail commission exist in db?
+3) store value from retail commission
+4) retrieve next valid number for card import
+5) build xml from string variable and edit header with correct values
+6) for each card number: write respective data into xml-string
+7) store file on file system
 """
+
+
 import sys, time, os
 from XMLs import card_import_xml
 from selects import retailer_provision, last_crd_imp_of_brandp
 from mytoolbox import db_lookup, selectCountryConnection, increase_consecutive_no
 from xml.etree import ElementTree as ET
+
 
 
 ########################USER INPUT#############################################
@@ -33,7 +48,6 @@ card_nos = '''
 1000000561508609
 1000000561508706
 1000000561508803
-
 '''
 pins = '''
 2ZK4U26555XXXXXX
@@ -67,8 +81,6 @@ else:
 
 first_cardno = card_nos_list[0]
 last_cardno = card_nos_list[-1]
-
-
 
 
 #this is how it should looke like:
@@ -173,7 +185,7 @@ for i in range(num_lines):
 record_count = tree.find('header/record_count')
 record_count.text = str(num_lines)
 
-production_path = r"Z:\UV\Betriebe\Kartennummern_Erstellungen"
+production_path = r"Z:\ITdep\Betriebe\Kartennummern_Erstellungen"
 import_path = os.path.join(production_path, country, 'Produktion ' + current_date[0:4], 'In_Arbeit')
 if not os.path.exists(import_path):
     os.makedirs(import_path)
