@@ -28,6 +28,8 @@ deactivate.py
 
 nachverarbeitung.py
 
+scattergun.py
+
 testcards.py
 
 umbuchung_pen_basiert.py
