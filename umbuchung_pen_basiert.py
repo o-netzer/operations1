@@ -3,6 +3,23 @@
 Created on Wed Aug 17 22:18:27 2016
 
 @author: netzer
+
+With input a set of logistic entities called "PENs" card metadata in these PENs
+are rebooked to some other retail partner ("new_retailP". see input section).
+Following steps are performed:
+1) check if the input set contains other numbers than PENs
+2) retrieve card numbers and other metadata belonging to the PENs from db
+3) retrieve new import number from db
+4) start writing data into XML template (from string) keeping track of count
+5) zip xml file and send it to sftp-server and unzip
+6) audio signalling ask user if the logisitcs import should be startet
+7) starting import script on ftp
+8) asking the db for the success of the operation, stopping otherwise
+9) checking for rare exceptions, stopping otherwise
+10) audio signalling ask user if export of data to new partner should be performed
+11) starting script for the export on ftp
+12) retrieve results o fthe operation from db
+13) audio signalling the end of the script  
 """
 
 import os, time, sys, gzip, shutil
@@ -12,6 +29,8 @@ from XMLs import rrem_xml
 from xml.etree import ElementTree as ET
 from sftp import sftp
 import winsound
+
+
 
 
 #####################input########################################
@@ -27,7 +46,7 @@ pos_ = 'KW13' #kann durch etwas anderes ersetzt werden
 #################PEN check#########################################
 not_a_pen = []
 for pen in pens:
-    if not pen.startswith('010'):
+    if not pen.startswith('999'):
         not_a_pen.append(pen)
 
 if not_a_pen <> []:
@@ -38,7 +57,7 @@ else:
     print('PENs OK!')
 #################PEN check#########################################
 
-
+#################################Retrieve card numbers and other metadata from db #####
 string_of_pens = ''
 
 for i in pens:
@@ -62,9 +81,6 @@ print('result column names:')
 print(headers)
 print(overall)
     
-
-
-
 print("starting to write PCL xml ...")
 
 resultset5 = db_lookup(cursor, last_pcl_import)
