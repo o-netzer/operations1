@@ -3,6 +3,10 @@
 Created on Mon Mar 14 12:03:23 2016
 
 @author: netzer
+
+This .py file is a module for the operations1 project and only contains
+SQL queries used in various scripts of that project. For security reasons the
+contents of the queries was deleted.
 """
 
 retail_comm2 = '''
