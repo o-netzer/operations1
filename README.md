@@ -22,6 +22,8 @@ XMLs.py|various XML templates
 ### Operational Scripts
 card_data_import.py (interactive)
 
+card_data_import_check.py
+
 deactivate.py
 
 nachverarbeitung.py
