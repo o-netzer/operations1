@@ -3,6 +3,9 @@
 Created on Mon Mar 28 21:07:58 2016
 
 @author: netzer
+
+This .py file is a module for the operations1 project and contains
+helper functions used in various scripts of that project.
 """
 
 import cx_Oracle
